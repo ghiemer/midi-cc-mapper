@@ -1,0 +1,16 @@
+{
+  "input_port": "APC mini mk2 Control",
+  "output_port": "IAC Driver Remap APC",
+  "mappings": {
+    "48": 80,
+    "49": 81,
+    "50": 82,
+    "51": 83,
+    "52": 84,
+    "53": 85,
+    "54": 86,
+    "55": 87,
+    "56": 88
+  },
+  "pass_through_other": true
+}

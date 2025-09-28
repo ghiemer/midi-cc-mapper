@@ -1,0 +1,6 @@
+venv/
+midi_cc_router.onefile-build/
+midi_cc_router.dist/
+midi_cc_router.build/
+__pycache__/
+.DS_Store
