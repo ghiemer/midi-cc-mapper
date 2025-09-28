@@ -28,19 +28,19 @@ if [ $FORCE -eq 1 ]; then
   rm -rf build dist *.spec
 fi
 
-pyinstaller --onefile --name midi-cc-router \
+pyinstaller --onefile --name midi-cc-mapper \
   --hidden-import mido.backends.rtmidi \
-  midi_cc_router.py
+  midi_cc_mapper.py
 
 echo "[INFO] Installing binary to /usr/local/bin..."
-sudo mv dist/midi-cc-router /usr/local/bin/midi-cc-router
-sudo chown root:wheel /usr/local/bin/midi-cc-router
-sudo chmod 755 /usr/local/bin/midi-cc-router
+sudo mv dist/midi-cc-mapper /usr/local/bin/midi-cc-mapper
+sudo chown root:wheel /usr/local/bin/midi-cc-mapper
+sudo chmod 755 /usr/local/bin/midi-cc-mapper
 
-echo "[INFO] Creating default config in /usr/local/etc/midi-cc-router..."
-sudo mkdir -p /usr/local/etc/midi-cc-router
-if [ ! -f /usr/local/etc/midi-cc-router/config.json ]; then
-  sudo tee /usr/local/etc/midi-cc-router/config.json >/dev/null <<'JSON'
+echo "[INFO] Creating default config in /usr/local/etc/midi-cc-mapper..."
+sudo mkdir -p /usr/local/etc/midi-cc-mapper
+if [ ! -f /usr/local/etc/midi-cc-mapper/config.json ]; then
+  sudo tee /usr/local/etc/midi-cc-mapper/config.json >/dev/null <<'JSON'
 {
   "input_port": "APC mini mk2 Control",
   "output_port": "IAC Driver Remap APC",
@@ -58,8 +58,8 @@ if [ ! -f /usr/local/etc/midi-cc-router/config.json ]; then
   "pass_through_other": true
 }
 JSON
-  sudo chmod 644 /usr/local/etc/midi-cc-router/config.json
+  sudo chmod 644 /usr/local/etc/midi-cc-mapper/config.json
 fi
 
 echo "[INFO] Installation complete!"
-echo "Run with: midi-cc-router /usr/local/etc/midi-cc-router/config.json"
+echo "Run with: midi-cc-mapper /usr/local/etc/midi-cc-mapper/config.json"

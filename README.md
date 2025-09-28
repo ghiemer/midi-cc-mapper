@@ -1,4 +1,4 @@
-# 🎛️ MIDI CC Router for macOS  
+# 🎛️ MIDI CC Mapper for macOS  
 
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-3776AB?logo=python)](https://www.python.org/) [![Built with PyInstaller](https://img.shields.io/badge/Built%20with-PyInstaller-FFDD00)](https://pyinstaller.org/) [![Platform: macOS](https://img.shields.io/badge/Platform-macOS-lightgrey?logo=apple)](https://www.apple.com/macos/) [![Ableton Live](https://img.shields.io/badge/Tested%20with-Ableton%20Live-orange?logo=abletonlive)](https://www.ableton.com/)  
 
@@ -15,7 +15,7 @@ I built this tool because I was struggling with a really annoying issue in **Abl
 When using both my **AKAI APC mini mk2** and **AKAI MIDI Mix**, the faders and knobs were sending **overlapping CC numbers**.  
 
 This meant I couldn’t map them independently — Live saw them as the same control.  
-After a lot of trial and error (and some frustration 😅), I worked with **ChatGPT** to create a small but powerful solution: a **MIDI CC Router**.  
+After a lot of trial and error (and some frustration 😅), I worked with **ChatGPT** to create a small but powerful solution: a **MIDI CC Mapper**.  
 
 It’s lightweight, runs only when I need it, and makes my workflow smooth again.  
 I’m sharing it here so others don’t have to go through the same headache.  
@@ -32,7 +32,7 @@ I’m sharing it here so others don’t have to go through the same headache.
 
 ## ✅ Solution  
 
-The **MIDI CC Router**:  
+The **MIDI CC Mapper**:  
 
 1. Reads CC messages from the APC mini mk2  
 2. Remaps them to a new, unused CC range (e.g. 80–88)  

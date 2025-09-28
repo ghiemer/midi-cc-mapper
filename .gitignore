@@ -1,4 +1,7 @@
 venv/
+midi_cc_mapper.onefile-build/
+midi_cc_mapper.dist/
+midi_cc_mapper.build/
 midi_cc_router.onefile-build/
 midi_cc_router.dist/
 midi_cc_router.build/

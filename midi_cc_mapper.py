@@ -10,7 +10,8 @@ except Exception as e:
     print("Fehler: mido/python-rtmidi fehlt. Installiere mit:\n  pip install 'mido[ports-rtmidi]'\n", e)
     sys.exit(1)
 
-DEFAULT_CFG = os.path.expanduser("~/midi-tools/config.json")
+# Default config aligns with setup.sh installation target.
+DEFAULT_CFG = "/usr/local/etc/midi-cc-mapper/config.json"
 DEBUG = ("--debug" in sys.argv)
 
 def pick_port(part: str, ports: list[str]) -> str:
