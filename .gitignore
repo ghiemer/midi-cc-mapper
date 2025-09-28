@@ -4,3 +4,7 @@ midi_cc_router.dist/
 midi_cc_router.build/
 __pycache__/
 .DS_Store
+build/
+dist/
+*.spec
+*.log

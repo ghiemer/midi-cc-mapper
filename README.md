@@ -1,6 +1,6 @@
 # 🎛️ MIDI CC Router for macOS  
 
-[![Made with Python](https://img.shields.io/badge/Made%20with-Python-3776AB?logo=python)](https://www.python.org/) [![Built with Nuitka](https://img.shields.io/badge/Built%20with-Nuitka-003545)](https://nuitka.net/) [![Platform: macOS](https://img.shields.io/badge/Platform-macOS-lightgrey?logo=apple)](https://www.apple.com/macos/) [![Ableton Live](https://img.shields.io/badge/Tested%20with-Ableton%20Live-orange?logo=abletonlive)](https://www.ableton.com/)  
+[![Made with Python](https://img.shields.io/badge/Made%20with-Python-3776AB?logo=python)](https://www.python.org/) [![Built with PyInstaller](https://img.shields.io/badge/Built%20with-PyInstaller-FFDD00)](https://pyinstaller.org/) [![Platform: macOS](https://img.shields.io/badge/Platform-macOS-lightgrey?logo=apple)](https://www.apple.com/macos/) [![Ableton Live](https://img.shields.io/badge/Tested%20with-Ableton%20Live-orange?logo=abletonlive)](https://www.ableton.com/)  
 
 ☕ If this project helps you, consider supporting me:  
 👉 [**Buy Me a Coffee**](https://buymeacoffee.com/ghiemer)  
@@ -45,46 +45,21 @@ Result: **No more CC collisions** 🎉
 
 ## 🚀 Installation  
 
-### 1. Install the binary  
+### 1. Clone the repo  
 
 ```bash
-python3 -m pip install --upgrade nuitka "mido[ports-rtmidi]" python-rtmidi
-cd midi-tools
-python3 -m nuitka --onefile   --include-module=mido.backends.rtmidi   --include-module=rtmidi   midi_cc_router.py
-sudo mv ~/midi-tools/midi_cc_router.bin /usr/local/bin/midi-cc-router
-sudo chown root:wheel /usr/local/bin/midi-cc-router
-sudo chmod 755 /usr/local/bin/midi-cc-router
+git clone https://github.com/ghiemer/midi-cc-mapper.git
+cd midi-cc-mapper
 ```
 
-### 2. Configuration  
-
-Create:  
+### 2. Run setup script  
 
 ```bash
-sudo mkdir -p /usr/local/etc/midi-cc-router
-sudo nano /usr/local/etc/midi-cc-router/config.json
+chmod +x setup.sh
+./setup.sh
 ```
 
-Example:  
-
-```json
-{
-  "input_port": "APC mini mk2 Control",
-  "output_port": "IAC Driver Remap APC",
-  "mappings": {
-    "48": 80,
-    "49": 81,
-    "50": 82,
-    "51": 83,
-    "52": 84,
-    "53": 85,
-    "54": 86,
-    "55": 87,
-    "56": 88
-  },
-  "pass_through_other": true
-}
-```
+Use `./setup.sh --force` if you want to rebuild everything from scratch.  
 
 ---
 
@@ -92,7 +67,7 @@ Example:
 
 ### Enable IAC Driver  
 
-1. Open **Audio MIDI Setup** → **Show MIDI Studio**(In menu Window)  
+1. Open **Audio MIDI Setup** → **Show MIDI Studio** (in menu *Window*)  
 2. Double-click **IAC Driver**  
 3. Enable *Device is online*  
 4. Add a port: **Remap APC**  
@@ -108,13 +83,13 @@ Example:
 ## ⚡ Usage  
 
 ```bash
-midi-cc-router /usr/local/etc/midi-cc-router/config.json
+midi-cc-mapper /usr/local/etc/midi-cc-mapper/config.json
 ```
 
 Debug mode:  
 
 ```bash
-midi-cc-router /usr/local/etc/midi-cc-router/config.json --debug
+midi-cc-mapper /usr/local/etc/midi-cc-mapper/config.json --debug
 ```
 
 Stop: `CTRL+C`  
@@ -136,6 +111,6 @@ AI helped me:
 - Debug conflicting configs  
 - Design the router in Python  
 - Optimize performance  
-- Compile to a macOS binary with Nuitka  
+- Compile to a macOS binary with PyInstaller  
 
 It’s proof that **human–AI collaboration** can solve niche but painful problems in music production. 😉
